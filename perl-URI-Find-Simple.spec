@@ -8,7 +8,6 @@ Group:		Development/Perl
 Summary:    A simple interface to URI::Find 
 Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{version}.tar.bz2
 Url:		http://search.cpan.org/dist/%{realname}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel
 BuildRequires: perl(Test::More)
 BuildRequires: perl(URI::Find)
