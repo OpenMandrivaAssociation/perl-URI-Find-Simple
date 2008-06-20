@@ -1,7 +1,7 @@
 %define realname   URI-Find-Simple
 
 Name:		perl-%{realname}
-Version:    0.7
+Version:    1
 Release:    %mkrel 1
 License:	GPL
 Group:		Development/Perl
