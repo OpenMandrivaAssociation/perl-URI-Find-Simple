@@ -2,7 +2,7 @@
 
 Name:		perl-%{realname}
 Version:    1.01
-Release:    %mkrel 1
+Release:    %mkrel 2
 License:	GPL
 Group:		Development/Perl
 Summary:    A simple interface to URI::Find 
