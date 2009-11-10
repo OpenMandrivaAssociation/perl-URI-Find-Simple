@@ -3,11 +3,12 @@
 Name:		perl-%{realname}
 Version:    1.01
 Release:    %mkrel 3
-License:	GPL
+License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Summary:    A simple interface to URI::Find 
 Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{version}.tar.bz2
 # fix from http://rt.cpan.org/Public/Bug/Display.html?id=50575
+# the fix is temporary, as noted on cpan as URI::Find changed its behavior
 Patch0:     %{name}-fix_test.diff
 Url:		http://search.cpan.org/dist/%{realname}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
