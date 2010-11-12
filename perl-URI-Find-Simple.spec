@@ -10,9 +10,6 @@ License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/%{upstream_name}-%{upstream_version}.tar.gz
-# fix from http://rt.cpan.org/Public/Bug/Display.html?id=50575
-# the fix is temporary, as noted on cpan as URI::Find changed its behavior
-Patch0:     %{name}-fix_test.diff
 
 BuildRequires: perl(Test::More)
 BuildRequires: perl(URI::Find)
@@ -29,7 +26,6 @@ This module uses URI::Find, but hides the callback interface, providing two
 functions - one to list all the uris, and one to change all the uris.
 %prep
 %setup -q -n URI-Find-Simple-%{upstream_version}
-#patch0 -p0
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
