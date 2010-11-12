@@ -1,21 +1,24 @@
-%define realname   URI-Find-Simple
+%define upstream_name    URI-Find-Simple
+%define upstream_version 1.03
 
-Name:		perl-%{realname}
-Version:    1.01
-Release:    %mkrel 3
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    A simple interface to URI::Find 
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Summary:    A simple interface to URI::Find 
-Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/%{upstream_name}-%{upstream_version}.tar.gz
 # fix from http://rt.cpan.org/Public/Bug/Display.html?id=50575
 # the fix is temporary, as noted on cpan as URI::Find changed its behavior
 Patch0:     %{name}-fix_test.diff
-Url:		http://search.cpan.org/dist/%{realname}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	perl-devel
+
 BuildRequires: perl(Test::More)
 BuildRequires: perl(URI::Find)
+
 BuildArch: noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 URI::Find is all very well, but sometimes you just want a list of the links 
@@ -25,15 +28,15 @@ somehow, and don't want to mess with callback interfaces.
 This module uses URI::Find, but hides the callback interface, providing two 
 functions - one to list all the uris, and one to change all the uris.
 %prep
-%setup -q -n URI-Find-Simple-%{version} 
-%patch0 -p0
+%setup -q -n URI-Find-Simple-%{upstream_version}
+#patch0 -p0
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-make test
+%make test
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -47,5 +50,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %{perl_vendorlib}/URI/
 %{_mandir}/man3/*
-
-
