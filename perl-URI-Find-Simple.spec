@@ -1,21 +1,21 @@
 %define upstream_name    URI-Find-Simple
 %define upstream_version 1.03
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    A simple interface to URI::Find 
+Summary:	A simple interface to URI::Find 
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Test::More)
-BuildRequires: perl(URI::Find)
+BuildRequires:	perl-devel
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(URI::Find)
 
-BuildArch: noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildArch:	noarch
 
 %description
 URI::Find is all very well, but sometimes you just want a list of the links 
@@ -28,21 +28,55 @@ functions - one to list all the uris, and one to change all the uris.
 %setup -q -n URI-Find-Simple-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
-%defattr(-,root,root)
-
 %{perl_vendorlib}/URI/
 %{_mandir}/man3/*
+
+
+%changelog
+* Fri Nov 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.30.0-1mdv2011.0
++ Revision: 596696
+- update to 1.03
+- update to 1.03
+
+* Tue Nov 10 2009 Michael Scherer <misc@mandriva.org> 1.01-3mdv2011.0
++ Revision: 463854
+- fix License
+- add a note on the patch i have added, as upstream is not such about it
+- fix test, with a patch from rt.cpan.org written by David Golden
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sat Oct 11 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.1
++ Revision: 292357
+- update to new version 1.01
+
+* Fri Jun 20 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1-1mdv2009.0
++ Revision: 227427
+- update to new version 1
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 0.7-1mdv2008.1
++ Revision: 136364
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Thu Dec 07 2006 Michael Scherer <misc@mandriva.org> 0.7-1mdv2007.0
++ Revision: 91986
+- Import perl-URI-Find-Simple
+
+* Thu Dec 07 2006 Michael Scherer <misc@mandriva.org> 0.7-1mdv2007.1
+- First Mandriva package
+
