@@ -1,15 +1,15 @@
 %define upstream_name    URI-Find-Simple
-%define upstream_version 1.03
+%define upstream_version 1.04
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	A simple interface to URI::Find 
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/URI/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::More)
@@ -79,4 +79,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Dec 07 2006 Michael Scherer <misc@mandriva.org> 0.7-1mdv2007.1
 - First Mandriva package
+
 
