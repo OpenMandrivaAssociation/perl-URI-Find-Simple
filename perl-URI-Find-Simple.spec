@@ -1,5 +1,5 @@
 %define upstream_name    URI-Find-Simple
-%define upstream_version 1.04
+%define upstream_version 1.05
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -79,5 +79,6 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Dec 07 2006 Michael Scherer <misc@mandriva.org> 0.7-1mdv2007.1
 - First Mandriva package
+
 
 
