@@ -8,7 +8,7 @@ Release:	3
 Summary:	A simple interface to URI::Find 
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
