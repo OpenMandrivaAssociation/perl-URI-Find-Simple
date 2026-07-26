@@ -1,15 +1,13 @@
 %define upstream_name    URI-Find-Simple
-%define upstream_version 1.05
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	1.05
+Release:	4
 
 Summary:	A simple interface to URI::Find 
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/URI/URI-Find-Simple-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -26,7 +24,7 @@ somehow, and don't want to mess with callback interfaces.
 This module uses URI::Find, but hides the callback interface, providing two 
 functions - one to list all the uris, and one to change all the uris.
 %prep
-%setup -q -n URI-Find-Simple-%{upstream_version}
+%setup -q -n URI-Find-Simple-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
